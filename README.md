@@ -16,7 +16,7 @@ Our code has been tested with Python 3.5, PyTorch 0.4.0, CUDA 8.0 on Ubuntu 16.0
 ## Datasets and Pre-trained weights
 The input pointcloud and training hierarchical trees are on [Here](https://github.com/chaene/hsp).
 Each category contains following folds:
-- models_2048_points_normals: input shape pointcloud with normal
+- models_2048_points_normals: normalized input shape pointcloud with normal
 - training_data_models_segment_2048_normals: GT part pointcloud with normal
 - training_trees: hierarchical structure(ops.mat) with symmetric parameters(syms.mat). The labels(labels.mat) are for testing.
 
@@ -24,7 +24,7 @@ The Pre-trained weights are on [Here](https://github.com/chaene/hsp).
 
 ### Usage: Demo
 Require 3GB RAM on the GPU and 5sec to run.
-This script takes as input a 2048*6 pointcloud (from ShapeNet). Please download Pre-trained weights of airplane first.
+This script takes as input a normalized 2048*6 pointcloud (Sampled from ShapeNet). Please download Pre-trained weights of airplane first.
 ```
 python test_demo.py
 ```
@@ -62,8 +62,8 @@ python ap_evaluate.py
 ```
 Segmentation results and its corresponding GT can also be found in ./results/category_name(eg ./data/airplane).
 
-PS: Code for symmetric parameters results is coming on the way.
-
+PS: More codes for results showing symmetric parameters is coming on the way.
+PPS: If you want to try more new shapes, please make sure that them are oriented and normalized as our shape.
 
 ## Citation
 If you use this code, please cite the following paper.

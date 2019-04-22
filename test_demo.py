@@ -47,6 +47,23 @@ def writeply(savedir, data, label):
 		for j in range(n_vertex):
 			f.write('%g %g %g %g %g %g %d %d %d %d\n' % (*data[0, j], *color[label[j]], label[j]))
 
+def normalize_shape(shape):
+	shape_min, _ = torch.min(shape[:,:,:3], 1)
+	shape_max, _ = torch.max(shape[:,:,:3], 1)
+	x_length = shape_max[0, 0] - shape_min[0, 0]
+	y_length = shape_max[0, 1] - shape_min[0, 1]
+	z_length = shape_max[0, 2] - shape_min[0, 2]
+	length = shape_max - shape_min
+	max_length = torch.max(length)
+	scale = 1/max_length
+	center = shape_min + length/2
+	print(center[0, 0],center[0, 1],center[0, 2], scale)
+	for i in range(2048):
+		shape[0, i, 0] = (shape[0, i, 0] - center[0, 0])* scale
+		shape[0, i, 1] = (shape[0, i, 1] - center[0, 1])* scale
+		shape[0, i, 2] = (shape[0, i, 2] - center[0, 2])* scale
+	return shape
+	
 def decode_structure(model, feature, points_f, shape):
 	"""
 	segment shape
@@ -130,6 +147,8 @@ def main():
 	print("Loading data ...... ", end='\n', flush=True)
 	
 	shape = torch.from_numpy(loadmat(config.data_path + 'demo.mat')['pc']).float()
+	##for your own new shape
+	##shape = normalize_shape(shape)
 	with torch.no_grad():
 		shape = shape.cuda()
 		points_feature = net.pointnet(shape)
