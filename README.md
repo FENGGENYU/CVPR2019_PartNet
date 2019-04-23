@@ -20,11 +20,17 @@ Each category contains following folds:
 - training_data_models_segment_2048_normals: GT part pointcloud with normal
 - training_trees: hierarchical structure(ops.mat) with symmetric parameters(syms.mat). The labels(labels.mat) are for testing.
 
+Our dataset has been extended and updated these days:
+#### Datasets information
+|  chair   | airplane | table    |  sofa    | helicopter   | bike    |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+| 999 | 630 | 583 | 630 | 100 | 155 |
+
 The Pre-trained weights are on [Here](https://www.dropbox.com/sh/um1li37bnbkpuck/AAAaCAuXWaY050E7W5b42XT1a?dl=0).
 
 ### Usage: Demo
 Require 3GB RAM on the GPU and 5sec to run.
-This script takes as input a normalized 2048*6 pointcloud (Sampled from ShapeNet). Please download Pre-trained weights of airplane first.
+This script takes as input a normalized 2048 pointcloud with normal (Sampled from ShapeNet model using [virtualscanner](https://github.com/Microsoft/O-CNN)). Please download Pre-trained weights of airplane first.
 ```
 python test_demo.py
 ```
