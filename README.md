@@ -49,7 +49,7 @@ Then run traning process
 python train.py
 ```
 
-More training arguments are set in util.py
+More training and testing arguments are set in util.py
 ```
 '--epochs' (number of epochs; default=1000)
 '--batch_size' (batch size; default=10)
@@ -65,13 +65,22 @@ More training arguments are set in util.py
 '--label_category' (semantic labels for each category, only for testing)
 ```
 ### Usage: Testing
-
-We measure AP(%) with IoU threshold being 0.25 and 0.5, respectively.
+To evaluate AP correctly, you need to set label_category for each category in util.py
+```
+'--label_category' (semantic labels for each category, only for testing)
+```
+We measure AP(%) with IoU threshold being 0.25 and 0.5, respectively. 
 ```
 python ap_evaluate.py
 ```
 Segmentation results and its corresponding GT can also be found in ./results/category_name(eg ./data/airplane).
 
+#### AP information of our method on updated datasets and training/testing split.
+
+|  category name   |  chair   | airplane | table    |  sofa    | helicopter   | bike    |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| IoU > 0.25 | 93.83 | 96.33 | 78.49 | 76.07 | 83.0 | 98.22 |
+| IoU > 0.5 | 84.23 | 88.41 | 63.2 | 55.76 | 69.4 | 97.60 |
 PS: More codes for results showing symmetric parameters is coming on the way.
 
 PPS: If you want to try more new shapes, please make sure that them are oriented and normalized as our shapes.
