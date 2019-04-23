@@ -1,0 +1,2 @@
+int cd_forward_cuda(int b, int n, THCudaTensor *xyz, int m, THCudaTensor *xyz2, THCudaTensor *result, THCudaIntTensor *result_i, THCudaTensor *result2, THCudaIntTensor *result2_i);
+int cd_backward_cuda(int b, int n, THCudaTensor *xyz1, int m, THCudaTensor *xyz2, THCudaTensor *grad_dist1, THCudaIntTensor *idx1, THCudaTensor *grad_dist2, THCudaIntTensor *idx2, THCudaTensor *grad_xyz1, THCudaTensor *grad_xyz2);

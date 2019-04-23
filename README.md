@@ -34,6 +34,8 @@ python test_demo.py
 
 Put data of each category in ./data/category_name(eg ./data/airplane) 
 
+Build extention for each op in ./pytorch_ops using build.py
+
 Then run
 ```
 python train.py
