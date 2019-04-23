@@ -81,9 +81,9 @@ def decode_structure(model, feature, points_f, shape):
 		left, right = model.adjDecoder(f_c1)
 		f_max, _ = torch.max(points_f, 2)
 		f_c2 = torch.cat([f_max, f_c1], 1)
-		bbox, _ = model.decoder.loc_points_predictor(points_f, f_c2)
-		bbox = bbox.cpu()
-		_, point_label=torch.max(bbox, 1)
+		point_label_prob, _ = model.decoder.loc_points_predictor(points_f, f_c2)
+		point_label_prob = point_label_prob.cpu()
+		_, point_label=torch.max(point_label_prob, 1)
 		left_list=[]
 		right_list=[]
 		for i in range(n_points):
@@ -113,9 +113,9 @@ def decode_structure(model, feature, points_f, shape):
 	elif label == 2:
 		f_max, _ = torch.max(points_f, 2)
 		f_c2 = torch.cat([f_max, f_c1], 1)
-		bbox, _ = model.decoder.loc_points_predictor_multi(points_f, f_c2)
-		bbox = bbox.cpu()
-		_, point_label = torch.max(bbox, 1)
+		point_label_prob, _ = model.decoder.loc_points_predictor_multi(points_f, f_c2)
+		point_label_prob = point_label_prob.cpu()
+		_, point_label = torch.max(point_label_prob, 1)
 		prediction = torch.LongTensor(n_points)
 		for i in range(point_label.size(1)):
 			prediction[i] = m+point_label[0, i].item()

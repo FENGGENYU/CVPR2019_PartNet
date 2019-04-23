@@ -60,14 +60,15 @@ More training arguments are set in util.py
 ```
 ### Usage: Testing
 
-We measure AP(%) with IoU threshold being 0:25 and 0:5, respectively.
+We measure AP(%) with IoU threshold being 0.25 and 0.5, respectively.
 ```
 python ap_evaluate.py
 ```
 Segmentation results and its corresponding GT can also be found in ./results/category_name(eg ./data/airplane).
 
 PS: More codes for results showing symmetric parameters is coming on the way.
-PPS: If you want to try more new shapes, please make sure that them are oriented and normalized as our shape.
+
+PPS: If you want to try more new shapes, please make sure that them are oriented and normalized as our shapes.
 
 ## Citation
 If you use this code, please cite the following paper.
