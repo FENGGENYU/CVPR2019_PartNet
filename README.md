@@ -81,6 +81,7 @@ Segmentation results and its corresponding GT can also be found in ./results/cat
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | IoU > 0.25 | 93.83 | 96.33 | 78.49 | 76.07 | 83.0 | 98.22 |
 | IoU > 0.5 | 84.23 | 88.41 | 63.2 | 55.76 | 69.4 | 97.60 |
+
 PS: More codes for results showing symmetric parameters is coming on the way.
 
 PPS: If you want to try more new shapes, please make sure that them are oriented and normalized as our shapes.
