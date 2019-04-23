@@ -14,13 +14,13 @@ Requirements:
 Our code has been tested with Python 3.5, PyTorch 0.4.0, CUDA 8.0 on Ubuntu 16.04.
 
 ## Datasets and Pre-trained weights
-The input pointcloud and training hierarchical trees are on [Here](https://github.com/chaene/hsp).
+The input pointcloud and training hierarchical trees are on [Here](https://www.dropbox.com/sh/7nuqb9wphsjkzko/AAAgy8zzmeRFsNuGuYCxUUWTa?dl=0).
 Each category contains following folds:
 - models_2048_points_normals: normalized input shape pointcloud with normal
 - training_data_models_segment_2048_normals: GT part pointcloud with normal
 - training_trees: hierarchical structure(ops.mat) with symmetric parameters(syms.mat). The labels(labels.mat) are for testing.
 
-The Pre-trained weights are on [Here](https://github.com/chaene/hsp).
+The Pre-trained weights are on [Here](https://www.dropbox.com/sh/um1li37bnbkpuck/AAAaCAuXWaY050E7W5b42XT1a?dl=0).
 
 ### Usage: Demo
 Require 3GB RAM on the GPU and 5sec to run.
@@ -35,8 +35,10 @@ python test_demo.py
 Put data of each category in ./data/category_name(eg ./data/airplane) 
 
 Build extention for each op in ./pytorch_ops using build.py
-
-Then run
+```
+python build.py
+```
+Then run traning process
 ```
 python train.py
 ```
