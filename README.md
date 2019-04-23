@@ -30,7 +30,10 @@ The Pre-trained weights are on [Here](https://www.dropbox.com/sh/um1li37bnbkpuck
 
 ### Usage: Demo
 Require 3GB RAM on the GPU and 5sec to run.
-This script takes as input a normalized 2048 pointcloud with normal (Sampled from ShapeNet model using [virtualscanner](https://github.com/Microsoft/O-CNN)). Please download Pre-trained weights of airplane first.
+
+This script takes as input a normalized 2048 pointcloud with normal (Sampled from ShapeNet model using [virtualscanner](https://github.com/Microsoft/O-CNN)). 
+
+Please download Pre-trained weights of airplane first and put it at ./models/airplane.
 ```
 python test_demo.py
 ```
