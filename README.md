@@ -3,7 +3,33 @@ Code for PartNet: A Recursive Part Decomposition Network for Fine-grained and Hi
 
 ### Intruduction
 
-We opt for top-down recursive decomposition and develop the first deep learning model for hierarchical segmentation of 3D shapes, based on recursive neural networks. Starting from a full shape represented as a point cloud, our model performs recursive binary decomposition, where the decomposition network at all nodes in the hierarchy share weights. At each node, a node classifier is trained to determine the type (adjacency or symmetry) and stopping criteria of its decomposition.
+Deep learning approaches to 3D shape segmentation are
+typically formulated as a multi-class labeling problem. Existing
+models are trained for a fixed set of labels, which
+greatly limits their flexibility and adaptivity. We opt for topdown
+recursive decomposition and develop the first deep
+learning model for hierarchical segmentation of 3D shapes,
+based on recursive neural networks. Starting from a full
+shape represented as a point cloud, our model performs
+recursive binary decomposition, where the decomposition
+network at all nodes in the hierarchy share weights. At each
+node, a node classifier is trained to determine the type (adjacency
+or symmetry) and stopping criteria of its decomposition.
+The features extracted in higher level nodes are
+recursively propagated to lower level ones. Thus, the meaningful
+decompositions in higher levels provide strong contextual
+cues constraining the segmentations in lower levels.
+Meanwhile, to increase the segmentation accuracy at each
+node, we enhance the recursive contextual feature with the
+shape feature extracted for the corresponding part. Our
+method segments a 3D shape in point cloud into an unfixed
+number of parts, depending on the shape complexity, showing
+strong generality and flexibility. It achieves the stateof-
+the-art performance, both for fine-grained and semantic
+segmentation, on the public benchmark and a new benchmark
+of fine-grained segmentation proposed in this work.
+We also demonstrate its application for fine-grained part
+refinements in image-to-shape reconstruction.
 
 ### Dependencies
 
@@ -17,7 +43,7 @@ Our code has been tested with Python 3.5, PyTorch 0.4.0, CUDA 8.0 on Ubuntu 16.0
 The input pointcloud and training hierarchical trees are on [Here](https://www.dropbox.com/sh/7nuqb9wphsjkzko/AAAgy8zzmeRFsNuGuYCxUUWTa?dl=0).
 Each category contains following folds:
 - models_2048_points_normals: normalized input shape pointcloud with normal
-- training_data_models_segment_2048_normals: GT part pointcloud with normal.(Note that we only store half parts of a shape, the other parts are recovered by symmetric parameters.)
+- training_data_models_segment_2048_normals: GT part pointcloud with normal. (Note that we only store half parts of a shape, the other parts needs to be recovered by symmetric parameters.)
 - training_trees: hierarchical structure(ops.mat) with symmetric parameters(syms.mat). The labels(labels.mat) are for testing.
 
 Our dataset has been extended and updated these days:
@@ -27,7 +53,7 @@ Our dataset has been extended and updated these days:
 | number of shapes | 999 | 630 | 583 | 630 | 100 | 155 |
 | number of parts | 9697 | 5234 | 3207 | 4747 | 1415 | 1238 |
 
-The Pre-trained weights are on [Here](https://www.dropbox.com/sh/um1li37bnbkpuck/AAAaCAuXWaY050E7W5b42XT1a?dl=0).
+The Pre-trained model are on [Here](https://www.dropbox.com/sh/um1li37bnbkpuck/AAAaCAuXWaY050E7W5b42XT1a?dl=0).
 
 ### Usage: Demo
 Require 3GB RAM on the GPU and 5sec to run.
