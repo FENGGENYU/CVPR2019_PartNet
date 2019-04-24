@@ -17,14 +17,15 @@ Our code has been tested with Python 3.5, PyTorch 0.4.0, CUDA 8.0 on Ubuntu 16.0
 The input pointcloud and training hierarchical trees are on [Here](https://www.dropbox.com/sh/7nuqb9wphsjkzko/AAAgy8zzmeRFsNuGuYCxUUWTa?dl=0).
 Each category contains following folds:
 - models_2048_points_normals: normalized input shape pointcloud with normal
-- training_data_models_segment_2048_normals: GT part pointcloud with normal
+- training_data_models_segment_2048_normals: GT part pointcloud with normal.(Note that we only store half parts of a shape, the other parts are recovered by symmetric parameters.)
 - training_trees: hierarchical structure(ops.mat) with symmetric parameters(syms.mat). The labels(labels.mat) are for testing.
 
 Our dataset has been extended and updated these days:
 #### Datasets information
-|  chair   | airplane | table    |  sofa    | helicopter   | bike    |
-| ---- | ---- | ---- | ---- | ---- | ---- |
-| 999 | 630 | 583 | 630 | 100 | 155 |
+|  category_name  |  chair   | airplane | table    |  sofa    | helicopter   | bike    |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| number of shapes | 999 | 630 | 583 | 630 | 100 | 155 |
+| number of parts | 9697 | 5234 | 3207 | 4747 | 1415 | 1238 |
 
 The Pre-trained weights are on [Here](https://www.dropbox.com/sh/um1li37bnbkpuck/AAAaCAuXWaY050E7W5b42XT1a?dl=0).
 
