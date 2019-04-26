@@ -76,7 +76,7 @@ Build extention for each op in ./pytorch_ops using build.py
 ```
 python build.py
 ```
-Then run traning process
+Then run training process
 ```
 python train.py
 ```
