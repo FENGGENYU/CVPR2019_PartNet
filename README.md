@@ -52,6 +52,8 @@ Our dataset has been extended and updated these days:
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | number of shapes | 999 | 630 | 583 | 630 | 100 | 155 |
 | number of parts | 9697 | 5234 | 3207 | 4747 | 1415 | 1238 |
+| maximum parts per shape | 25 | 14 | 17 | 27 | 21 | 9 |
+| minimum parts per shape | 3 | 4 | 2 | 2 | 6 | 6 |
 
 The Pre-trained model are on [Here](https://www.dropbox.com/sh/um1li37bnbkpuck/AAAaCAuXWaY050E7W5b42XT1a?dl=0).
 
@@ -112,9 +114,7 @@ Segmentation results and its corresponding GT can also be found in ./results/cat
 | IoU > 0.25 | 93.83 | 96.33 | 78.49 | 76.07 | 83.0 | 98.22 |
 | IoU > 0.5 | 84.23 | 88.41 | 63.2 | 55.76 | 69.4 | 97.60 |
 
-PS: More codes for results showing symmetric parameters is coming on the way.
-
-PPS: If you want to try more new shapes, please make sure that them are oriented and normalized as our shapes.
+PS: If you want to try more new shapes, please make sure that them are oriented and normalized as our shapes.
 
 ## Citation
 If you use this code, please cite the following paper.
