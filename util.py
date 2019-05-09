@@ -19,7 +19,7 @@ def get_args():
 	parser.add_argument('--lr_decay_by', type=float, default=1)
 	parser.add_argument('--lr_decay_every', type=float, default=1)
 	parser.add_argument('--no_cuda', action='store_true', default=False)
-	parser.add_argument('--gpu', type=int, default=1)
+	parser.add_argument('--gpu', type=int, default=0)
 	parser.add_argument('--data_path', type=str, default='./data/airplane/')
 	parser.add_argument('--save_path', type=str, default='./models/airplane/')
 	parser.add_argument('--output_path', type=str, default='./results/airplane/')
