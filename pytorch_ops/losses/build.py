@@ -15,7 +15,7 @@ ffi = create_extension(
     extra_objects=extra_objects,
     extra_compile_args=["-I/usr/local/cuda-8.0/include"])
 ffi.build()
-'''
+
 extra_objects = ['emd/emd_cuda_kernel.o']
 extra_objects = [os.path.join(this_file, fname) for fname in extra_objects]
 ffi1 = create_extension(
@@ -28,4 +28,4 @@ ffi1 = create_extension(
     extra_objects=extra_objects,
     extra_compile_args=["-I/usr/local/cuda-8.0/include"])
 ffi1.build()
-'''
+
