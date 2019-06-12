@@ -70,7 +70,7 @@ class Tree(object):
 			self.semantic_label = semantic_label
 
 		def is_leaf(self):
-			return self.node_type == Tree.NodeType.LEAF and self.leaf_points is not None
+			return self.node_type == Tree.NodeType.LEAF
 
 		def is_adj(self):
 			return self.node_type == Tree.NodeType.ADJ
