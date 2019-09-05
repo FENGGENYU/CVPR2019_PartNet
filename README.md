@@ -63,6 +63,14 @@ Require 3GB RAM on the GPU and 5sec to run.
 This script takes as input a normalized 2048 pointcloud with normal (Sampled from ShapeNet model using [virtualscanner](https://github.com/Microsoft/O-CNN)). 
 
 Please download Pre-trained weights of airplane first and put it at ./models/airplane.
+
+Build extention for each op in ./pytorch_ops/*** (eg ./pytorch_ops/sampling/) using build.py
+
+ps: torch 0.4 is required, and it won't work with later torch version.
+```
+python build.py
+```
+Then run
 ```
 python test_demo.py
 ```
