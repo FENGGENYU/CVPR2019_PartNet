@@ -146,7 +146,7 @@ def main():
 		os.makedirs(config.output_path + 'segmented')
 	print("Loading data ...... ", end='\n', flush=True)
 	
-	shape = torch.from_numpy(loadmat(config.data_path + 'demo.mat')['pc']).float()
+	shape = torch.from_numpy(sio.loadmat(config.data_path + 'demo.mat')['pc']).float()
 	##for your own new shape
 	##shape = normalize_shape(shape)
 	with torch.no_grad():
