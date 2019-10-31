@@ -39,7 +39,7 @@ Requirements:
 
 Our code has been tested with Python 3.5, PyTorch 0.4.0, CUDA 8.0 on Ubuntu 16.04.
 ## News!!!
-***Oct, 30*** Our extended datasets have been released at [here](https://github.com/FoggYu/PartNet_symh).
+***Oct 30, 2019.*** Our extended datasets have been released at [here](https://github.com/FoggYu/PartNet_symh).
 
 ## Datasets and Pre-trained weights
 The input pointcloud and training hierarchical trees are on [Here](https://www.dropbox.com/sh/7nuqb9wphsjkzko/AAAgy8zzmeRFsNuGuYCxUUWTa?dl=0).
