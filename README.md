@@ -38,7 +38,10 @@ Requirements:
 - [PyTorch](https://pytorch.org/resources)
 
 Our code has been tested with Python 3.5, PyTorch 0.4.0, CUDA 8.0 on Ubuntu 16.04.
-## News!!!
+## News
+***Dec 3, 2019.*** Symmetric parameter labels in our codes are different from [GRASS](https://github.com/kevin-kaixu/grass_pytorch). Our symmetric parameter labels:0--reflected,-1--rotational,1--translational, while GRASS uses 1--reflected,-1--rotational,0--translational. In addition, our translational parameters are set different from GRASS.
+If you want to use symmetric parameter from [GRASS](https://github.com/kevin-kaixu/grass_pytorch), please use dataloader_grass.py.
+If you want to use symmetric parameter from [PartNet_symh](https://github.com/FoggYu/PartNet_symh), please use dataloader_symh.py.
 ***Oct 30, 2019.*** Our extended datasets have been released at [here](https://github.com/FoggYu/PartNet_symh).
 
 ## Datasets and Pre-trained weights
