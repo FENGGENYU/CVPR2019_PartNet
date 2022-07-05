@@ -37,13 +37,7 @@ Requirements:
 - Python 3.5 with numpy, scipy, torchfold, tensorboard and etc.
 - [PyTorch](https://pytorch.org/resources)
 
-Our code has been tested with Python 3.5, PyTorch 0.4.0, CUDA 8.0 on Ubuntu 16.04.
-## News
-***Dec 3, 2019.*** Our structure hierarchies are same as [GRASS](https://github.com/kevin-kaixu/grass_pytorch), but symmetric parameters have a little difference. Specifically, our symmetric parameter labels are:0--reflected,-1--rotational,1--translational, while GRASS uses 1--reflected,-1--rotational,0--translational. In addition, our translational parameters are set different from GRASS.
-If you want to use symmetric parameters from [GRASS](https://github.com/kevin-kaixu/grass_pytorch), please use dataloader_grass.py.
-If you want to use symmetric parameters from [PartNet_symh](https://github.com/FoggYu/PartNet_symh), please use dataloader_symh.py.
-
-***Oct 30, 2019.*** Our extended datasets have been released at [here](https://github.com/FoggYu/PartNet_symh).
+***Our code has been tested with Python 3.9, PyTorch 1.11, CUDA 11.6 on Ubuntu 18.04.***
 
 ## Datasets and Pre-trained weights
 The input pointcloud and training hierarchical trees are on [Here](https://www.dropbox.com/sh/7nuqb9wphsjkzko/AAAgy8zzmeRFsNuGuYCxUUWTa?dl=0).
