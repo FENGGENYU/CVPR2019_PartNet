@@ -39,6 +39,7 @@ Requirements:
 
 Our code has been tested with Python 3.5, PyTorch 0.4.0, CUDA 8.0 on Ubuntu 16.04.
 ## News
+***July 3, 2022.*** If you use Pytorch later than 1.6, please use this [new version](https://github.com/FENGGENYU/PartNet/tree/torch1.6-and-later).
 ***Dec 3, 2019.*** Our structure hierarchies are same as [GRASS](https://github.com/kevin-kaixu/grass_pytorch), but symmetric parameters have a little difference. Specifically, our symmetric parameter labels are:0--reflected,-1--rotational,1--translational, while GRASS uses 1--reflected,-1--rotational,0--translational. In addition, our translational parameters are set different from GRASS.
 If you want to use symmetric parameters from [GRASS](https://github.com/kevin-kaixu/grass_pytorch), please use dataloader_grass.py.
 If you want to use symmetric parameters from [PartNet_symh](https://github.com/FoggYu/PartNet_symh), please use dataloader_symh.py.
