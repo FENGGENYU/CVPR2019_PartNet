@@ -4,10 +4,12 @@ from scipy.io import loadmat
 from enum import Enum
 from torch.autograd import Variable
 import math
-from pytorch_ops.sampling.sample import FarthestSample
-from pytorch_ops.losses.cd.cd import CDModule
+# from pytorch_ops.sampling.sample import FarthestSample
+# from pytorch_ops.losses.cd.cd import CDModule
+import pytorch_ops.chamfer3D.dist_chamfer_3D as chamfer3D
 
 m_grp = 0
+
 
 def vrrotvec2mat(rotvector, angle):
 	s = math.sin(angle)
@@ -28,7 +30,7 @@ def multilabel(points, shape, cdloss):
 	c = c - 1
 	for i in range(points.size(0)):
 		a = points[i].unsqueeze(0).cuda()
-		_, index, _, _ = cdloss(a, shape)
+		_, _, index , _ = cdloss(a, shape)
 		b = torch.unique(index.cpu())
 		for k in range(b.size(0)):
 			c[0, b[k].item()] = i
@@ -147,7 +149,7 @@ def dfs_fix(node, shape, cdloss, shape_normal, seg, grp, reflect=None):
 	global m_grp
 	if node.is_leaf():
 		# find node's corresponding points on input
-		_, index, _ , _	 = cdloss(node.leaf_points[:, :, :3].cuda(), shape)
+		_, _, index , _	 = cdloss(node.leaf_points[:, :, :3].cuda(), shape)
 		b = torch.unique(index.cpu())
 		c = torch.LongTensor(1, 2048).zero_()
 		c = c - 1
@@ -178,7 +180,7 @@ def dfs_fix(node, shape, cdloss, shape_normal, seg, grp, reflect=None):
 			new_points = torch.cat([new_points[:2048, :], new_points[2048:, :] - new_points[:2048, :]], 1)
 			New_node = Tree.Node(leaf_points=new_points.unsqueeze(0), node_type=Tree.NodeType.LEAF)
 			#build node for reflect node's children
-			_, index, _ , _	 = cdloss(New_node.leaf_points[:, :, :3].cuda(), shape)
+			_, _, index, _	 = cdloss(New_node.leaf_points[:, :, :3].cuda(), shape)
 			b = torch.unique(index.cpu())
 			reflect_c = torch.LongTensor(1, 2048).zero_()
 			reflect_c = reflect_c - 1
@@ -326,7 +328,7 @@ class Data_Loader(data.Dataset):
 			syms = torch.t(sym_data[i])
 			labels = torch.t(label_data[i])
 			tree = Tree(parts, ops, syms, labels, shape)
-			cdloss = CDModule()
+			cdloss = chamfer3D.chamfer_3DDist()
 			seg = torch.LongTensor(2048).zero_() # for ap calculation
 			grp = torch.LongTensor(2048).zero_()
 			global m_grp

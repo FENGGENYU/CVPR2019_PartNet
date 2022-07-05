@@ -4,9 +4,9 @@ from torch import nn
 from torch.autograd import Variable
 from time import time
 import torch.nn.functional as F
-from pytorch_ops.losses.cd.cd import CDModule
-from pytorch_ops.losses.emd.emd import EMDModule
-from pytorch_ops.sampling.sample import FarthestSample
+# from pytorch_ops.losses.cd.cd import CDModule
+# from pytorch_ops.losses.emd.emd import EMDModule
+# from pytorch_ops.sampling.sample import FarthestSample
 import pointnet2 as Pointnet
 #########################################################################################
 # Encoder
@@ -207,9 +207,9 @@ class PARTNET(nn.Module):
 		self.mseLoss = nn.MSELoss(reduce=False)
 		self.nllloss = nn.NLLLoss(reduce=False)
 		self.creLoss = nn.CrossEntropyLoss(reduce=False)
-		self.cdloss = CDModule()
-		self.emdloss = EMDModule()
-		self.sample = FarthestSample(256)
+		# self.cdloss = CDModule()
+		# self.emdloss = EMDModule()
+		# self.sample = FarthestSample(256)
 
 	def pcEncoder(self, points):
 		return self.decoder.pc_encoder(points)
