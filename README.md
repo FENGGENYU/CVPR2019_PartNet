@@ -80,9 +80,7 @@ python test_demo.py
 
 Put data of each category in ./data/category_name(eg ./data/airplane) 
 
-Build extention for each op in ./pytorch_ops/*** (eg ./pytorch_ops/sampling/) using build.py
-
-ps: torch 0.4 is required, and it won't work with later torch version.
+Follow instruction under ./pytorch_ops/*** to build extensions.
 ```
 python build.py
 ```
