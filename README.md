@@ -64,9 +64,7 @@ This script takes as input a normalized 2048 pointcloud with normal (Sampled fro
 
 Please download Pre-trained weights of airplane first and put it at ./models/airplane.
 
-Build extention for each op in ./pytorch_ops/*** (eg ./pytorch_ops/sampling/) using build.py
-
-ps: torch 0.4 is required, and it won't work with later torch version.
+Follow instruction under ./pytorch_ops/*** to build extensions.
 ```
 python build.py
 ```
